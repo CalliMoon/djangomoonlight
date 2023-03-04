@@ -5,19 +5,14 @@
     </head>
     <body>
         <header>
-            <h1><a href="/">Django Girls - Calli's Blog</a></h1>
+            <h1><a href="/">Django Girls Blog</a></h1>
         </header>
-
-        <article>
-            <time>published: 04.03.2023, 14:36</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Sheeeesh I have pending assignments but I chose to be part of the Django girls event, because I want to dig deep into it!</p>
-        </article>
-
-        <article>
-            <time>published: 03.04.2023, 14:36</time>
-            <h2><a href="">My second post</a></h2>
-            <p>While I am attending the event, I wonder if I still have carbonara at home.</p>
-        </article>
-    </body>
-</html>
+        
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
+        
